@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipies{{ kategoria }}</title>
+</head>
+<body>
+    <h1>Przepisy w kategorii: {{ category_name }}</h1>
+    <a href="/">← Powrót do kategorii</a>
+    <ul>
+        {% for meal in meals %}
+            <li>
+                <a href="{{ url_for('meals', meal_id=meal['idMeal']) }}">
+                    <h3>{{ meal["strMeal"] }}</h3>
+                    <img src="{{ meal['strMealThumb'] }}" alt="{{ meal['strMeal'] }}" width="150">
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

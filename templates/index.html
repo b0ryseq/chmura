@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kategorie przepisów</title>
+</head>
+<body>
+    <h1>Lista kategorii</h1>
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="{{ url_for('category_meals', category_name=category['strCategory']) }}">
+                <h3>{{ category["strCategory"] }}</h3>
+                <img src="{{ category['strCategoryThumb'] }}" alt="{{ category['strCategory'] }}" width="150">
+                <p>{{ category["strCategoryDescription"][:100] }}...</p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

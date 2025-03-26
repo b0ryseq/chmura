@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes{{ kategoria }}</title>
+</head>
+<body>
+    <h1>{{ recipes["strMeal"] }}</h1>
+    <img src="{{ recipes['strMealThumb'] }}" alt="{{ recipes['strMeal'] }}" width="250">
+
+    <h2>Instrukcja przygotowania</h2>
+    <p>{{ recipes["strInstructions"] }}</p>
+
+    <h2>Składniki:</h2>
+    <ul>
+        {% for recipe in recipes %}
+            {% if recipes["strIngredient" ~ i] %}
+                <li>{{ recipes["strIngredient" ~ i] }} - {{ recipes["strMeasure" ~ i] }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <a href="/">← Powrót na stronę główną</a>
+</body>
+</html>
